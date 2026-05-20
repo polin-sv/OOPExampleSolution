@@ -45,20 +45,27 @@ public:
 		alive = true;
 	}
 
-	////copy-constructor
-	//Student(const Student& student) {
-	//	cout << "student copy-constructor ..." << endl;
-	//	id = student.id;
-	//	name = student.name;
-	//	age = student.age;
-	//	class_number = student.class_number;
-	//	class_letter = student.class_letter;
-	//	marks = new double[3] {student.marks[0],
-	//		student.marks[1],
-	//		student.marks[2]};
+	//copy-constructor
+	Student(const Student& student) {
+		cout << "student copy-constructor ..." << endl;
+		id = student.id;
+		name = student.name;
+		age = student.age;
+		class_number = student.class_number;
+		class_letter = student.class_letter;
+		marks = new double[3] {student.marks[0],
+			student.marks[1],
+			student.marks[2]};
 
-	//	alive = student.alive;
-	//}
+		alive = student.alive;
+	}
+
+	~Student() {
+		cout << "student destructor..." << endl;
+		if (marks != NULL) {
+			delete[] marks;
+		}
+	}
 
 	string toString() {
 		string s = "student: ";
