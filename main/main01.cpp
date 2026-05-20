@@ -29,5 +29,9 @@ int main() {
 	cout << alex.toString() << endl;
 	cout << vlad.toString() << endl;
 
+	delete[] alex.marks;
+	delete[] vlad.marks;
+
+
 	return 0;
 }
