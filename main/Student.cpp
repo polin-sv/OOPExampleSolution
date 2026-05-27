@@ -1,14 +1,6 @@
 #include "Student.h"
 
-Student::Student() {
-	cout << "student default constructor" << endl;
-	id = 0;
-	name = "";
-	age = 0;
-	marks = new int[3] {10, 9, 8};
-	classNumber = 0;
-	classLetter = '\0';
-	alive = false;
+Student::Student() : Student(0, "no name", 10, 0, '\0', true) {
 }
 
 // canonical constructor
@@ -19,8 +11,8 @@ Student::Student(int id, string name, int age, int number, char letter, bool ali
 	this->age = age;
 	classNumber = number;
 	classLetter = letter;
-	marks = new int[3] {10, 9, 8};
-	count = 3;
+	marks = NULL;
+	count = 0;
 	this->alive = alive;
 }
 
@@ -28,22 +20,24 @@ Student::Student(string name, int age) : Student() {
 	cout << "Student constructor with arguments...\n";
 	this->name = name;
 	this->age = age;
-	
+
 }
 
 //copy-constructor
-Student::Student(const Student& student) {
+Student::Student(const Student& student) : Student(student.id,student.name,
+	student.age,student.classNumber,student.classLetter,student.alive){
 	cout << "student copy-constructor ..." << endl;
-	id = student.id;
-	name = student.name;
-	age = student.age;
-	classNumber = student.classNumber;
-	classLetter = student.classLetter;
-	marks = new int[3] {student.marks[0],
-		student.marks[1],
-		student.marks[2]};
-	count = 3;
-	alive = student.alive;
+
+	if (student.marks != NULL && student.count > 0) {
+		count = student.count;
+
+		marks = new int[count];
+
+		for (int i = 0; i < count; i++)
+		{
+			marks[i] = student.marks[i];
+		}
+	}
 }
 
 Student::~Student() {
