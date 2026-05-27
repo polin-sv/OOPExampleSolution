@@ -1,8 +1,8 @@
-#include "Student.h"
+#include "Group.h"
 class Menager {
 
 public:
-	double calculateAverageMark(Student** group, int size);
+	double calculateAverageMark(Group* group);
 };
 
 
