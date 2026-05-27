@@ -1,7 +1,7 @@
 #include "Student.h"
 
 Student::Student() {
-	//	cout << "student default constructor" << endl;
+	cout << "student default constructor" << endl;
 	id = 0;
 	name = "";
 	age = 0;
@@ -24,15 +24,11 @@ Student::Student(int id, string name, int age, int number, char letter, bool ali
 	this->alive = alive;
 }
 
-Student::Student(string name, int age) {
-	id = 0;
+Student::Student(string name, int age) : Student() {
+	cout << "Student constructor with arguments...\n";
 	this->name = name;
 	this->age = age;
-	classNumber = 0;
-	classLetter = '\0';
-	marks = new int[3] {10, 9, 8};
-	count = 3;
-	alive = true;
+	
 }
 
 //copy-constructor

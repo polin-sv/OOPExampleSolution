@@ -135,6 +135,7 @@
     <ClCompile Include="main02.cpp" />
     <ClCompile Include="main03.cpp" />
     <ClCompile Include="main04.cpp" />
+    <ClCompile Include="main05.cpp" />
     <ClCompile Include="Menager.cpp" />
     <ClCompile Include="Student.cpp" />
   </ItemGroup>
