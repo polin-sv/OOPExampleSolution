@@ -1,7 +1,7 @@
-#include "Menager.h"
-
-int main() {
-	Student* st1 = new Student("Alex", 15);
-	
-	return 0;
-}
+//#include "Menager.h"
+//
+//int main() {
+//	Student* st1 = new Student("Alex", 15);
+//	
+//	return 0;
+//}
