@@ -12,22 +12,22 @@ Student::Student() {
 }
 
 // canonical constructor
-Student::Student(int i, string nm, int ag, int number, char letter, bool a) {
+Student::Student(int id, string name, int age, int number, char letter, bool alive) {
 	cout << "student canonical constructor...\n";
-	id = i;
-	name = nm;
-	age = ag;
+	this->id = id;
+	this->name = name;
+	this->age = age;
 	classNumber = number;
 	classLetter = letter;
 	marks = new int[3] {10, 9, 8};
 	count = 3;
-	alive = a;
+	this->alive = alive;
 }
 
-Student::Student(string nm, int ag) {
+Student::Student(string name, int age) {
 	id = 0;
-	name = nm;
-	age = ag;
+	this->name = name;
+	this->age = age;
 	classNumber = 0;
 	classLetter = '\0';
 	marks = new int[3] {10, 9, 8};
@@ -61,8 +61,8 @@ int Student::getID() {
 	return id;
 }
 
-void Student::setID(int i) {
-	id = i;
+void Student::setID(int id) {
+	this->id = id;
 
 }
 
@@ -70,17 +70,17 @@ string Student::getName() {
 	return name;
 }
 
-void Student::setName(string nm) {
-	name = nm;
+void Student::setName(string name) {
+	this->name = name;
 }
 
 int Student::getAge() {
 	return age;
 }
 
-void Student::setAge(int a) {
-	if (a > 10) {
-		age = a;
+void Student::setAge(int age) {
+	if (age > 10) {
+		this->age = age;
 	}
 }
 
@@ -110,26 +110,26 @@ bool Student::isAlive() {
 	return alive;
 }
 
-void Student::setAlive(bool a) {
-	alive = a;
+void Student::setAlive(bool alive) {
+	this->alive = alive;
 }
 
 int* Student::getMarks() {
 	return marks;
 }
 
-void Student::setMarks(int* ms, int c) {
-	if (marks != NULL && c > 0) {
-		delete marks;
+void Student::setMarks(int* marks, int count) {
+	if (marks != NULL && count > 0) {
+		delete this->marks;
 
-		marks = new int[c];
+		this->marks = new int[count];
 
-		for (int i = 0; i < c; i++)
+		for (int i = 0; i < count; i++)
 		{
-			marks[i] = ms[i];
+			this->marks[i] = marks[i];
 		}
 
-		count = c;
+		this->count = count;
 	}
 
 }
@@ -144,8 +144,12 @@ string Student::toString() {
 	s += "[" + to_string(id) + "]";
 	s += ", age = " + to_string(age);
 	s += ", class = " + to_string(classNumber) + to_string(classLetter);
-	s += ", marks = " + to_string(marks[0]) + ", "
-		+ to_string(marks[1]) + ", " + to_string(marks[2]) + ", ";
+	s += ", marks = {";
+	for (int i = 0; i < count; i++)
+	{
+		s += " " + to_string(marks[i]);
+	}
+	s += "}";
 	s += ", alive = ";
 	s += (alive ? "yes" : "no");
 
