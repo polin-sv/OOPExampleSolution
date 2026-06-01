@@ -13,7 +13,7 @@ public:
 	Student();
 	Student(int i, string nm, int ag, int number, char letter, bool a);
 	Student(string nm, int ag);
-	Student(const Student& student);
+	//Student(const Student& student);
 	~Student();
 
 	int getID();
