@@ -1,17 +1,12 @@
-#include <iostream>
-#include <string>
-using namespace std;
+#include "Human.h"
 
 class Student {
 private:
 	int id;
-	string name;
-	int age;
 	int* marks;
 	int count;
 	int classNumber;
 	char classLetter;
-	bool alive;
 public:
 
 	Student();
@@ -22,16 +17,10 @@ public:
 
 	int getID();
 	void setID(int i);
-	string getName();
-	void setName(string nm);
-	int getAge();
-	void setAge(int a);
 	int getClassNumber();
 	void setClassNumber(int number);
 	char getClassLetter();
 	void setClassLetter(char letter);
-	bool isAlive();
-	void setAlive(bool a);
 	int* getMarks();
 	void setMarks(int* ms, int c);
 	int getCount();
