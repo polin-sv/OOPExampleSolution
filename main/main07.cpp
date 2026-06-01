@@ -4,7 +4,7 @@ int main() {
 	//Employee* employee = new Employee();
 	//Human* human = new Human();
 
-	Menager* menage = new Menager();
+	Menager menage;
 
 	return 0;
 }

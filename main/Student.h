@@ -1,7 +1,7 @@
 #pragma once
 #include "Human.h"
 
-class Student {
+class Student : public Human {
 private:
 	int id;
 	int* marks;
@@ -11,9 +11,9 @@ private:
 public:
 
 	Student();
-	Student(int i, string nm, int ag, int number, char letter, bool a);
-	Student(string nm, int ag);
-	//Student(const Student& student);
+	Student(int id, string name, int age, int number, char letter, bool alive);
+	Student(string name, int age);
+	Student(const Student& student);
 	~Student();
 
 	int getID();
@@ -23,7 +23,7 @@ public:
 	char getClassLetter();
 	void setClassLetter(char letter);
 	int* getMarks();
-	void setMarks(int* ms, int c);
+	void setMarks(int* marks, int count);
 	int getCount();
 
 	string toString();

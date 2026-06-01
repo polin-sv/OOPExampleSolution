@@ -4,41 +4,38 @@ Student::Student() : Student(0, "no name", 10, 0, '\0', true) {
 }
 
 // canonical constructor
-Student::Student(int id, string name, int age, int number, char letter, bool alive) {
+Student::Student(int id, string name, int age, int number, char letter, bool alive)
+	: Human(name, age, id)
+{
 	cout << "student canonical constructor...\n";
 	this->id = id;
-	//this->name = name;
-	//this->age = age;
 	classNumber = number;
 	classLetter = letter;
 	marks = NULL;
 	count = 0;
-	//this->alive = alive;
 }
 
 Student::Student(string name, int age) : Student() {
 	cout << "Student constructor with arguments...\n";
-	//this->name = name;
-	//this->age = age;
 
 }
 
-////copy-constructor
-//Student::Student(const Student& student) : Student(student.id,student.name,
-//	student.age,student.classNumber,student.classLetter,student.alive){
-//	cout << "student copy-constructor ..." << endl;
-//
-//	if (student.marks != NULL && student.count > 0) {
-//		count = student.count;
-//
-//		marks = new int[count];
-//
-//		for (int i = 0; i < count; i++)
-//		{
-//			marks[i] = student.marks[i];
-//		}
-//	}
-//}
+//copy-constructor
+Student::Student(const Student& student) : Student(student.id,student.name,
+	student.age,student.classNumber,student.classLetter,student.alive){
+	cout << "student copy-constructor ..." << endl;
+
+	if (student.marks != NULL && student.count > 0) {
+		count = student.count;
+
+		marks = new int[count];
+
+		for (int i = 0; i < count; i++)
+		{
+			marks[i] = student.marks[i];
+		}
+	}
+}
 
 Student::~Student() {
 	cout << "student destructor..." << endl;
@@ -105,9 +102,9 @@ int Student::getCount() {
 
 string Student::toString() {
 	string s = "student: ";
-	//s += name;
+	s += name;
 	s += "[" + to_string(id) + "]";
-	//s += ", age = " + to_string(age);
+	s += ", age = " + to_string(age);
 	s += ", class = " + to_string(classNumber) + to_string(classLetter);
 	s += ", marks = {";
 	for (int i = 0; i < count; i++)
@@ -115,8 +112,8 @@ string Student::toString() {
 		s += " " + to_string(marks[i]);
 	}
 	s += "}";
-	//s += ", alive = ";
-	//s += (alive ? "yes" : "no");
+	s += ", alive = ";
+	s += (alive ? "yes" : "no");
 
 	return s;
 }
